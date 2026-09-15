@@ -1,0 +1,3 @@
+Since I used AI during the development, a big part of the learning was understanding the code it generated and checking whether it actually worked as expected.
+
+I also learned that getting the code generated is not the same as having a working application. When I ran the project, I came across routing issues and had to understand why certain URLs were returning 404 errors and how to fix them.
