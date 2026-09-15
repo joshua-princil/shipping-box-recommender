@@ -1,4 +1,4 @@
-# Conversation Transcript — Shipping Box Recommender
+# Chat Transcript — Shipping Box Recommender
 
 A record of this conversation, from initial request through to the final
 project. Screenshots the user shared are noted in brackets rather than
