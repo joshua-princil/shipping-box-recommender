@@ -1,0 +1,15 @@
+rundown of the 10 test cases in boxes/tests.py, all in BoxRecommendationTests:
+
+Test	What it checks
+test_picks_cheapest_box_that_fits	A single light, small item (mug) gets the cheapest box that can hold it — the baseline "happy path."
+test_upgrades_box_when_small_one_overflows_on_volume	15 books individually fit the small box, but their combined bulk doesn't — confirms the algorithm looks at totals, not just one item.
+test_oversized_single_item_forces_larger_box_even_if_light	A monitor is light enough for the small box's weight limit but physically too big — confirms per-item dimension fit is checked independently of weight/volume.
+test_weight_limit_forces_bigger_box	A small but heavy item exceeds two boxes' weight caps before finding one it fits in — confirms weight capacity is enforced separately from size.
+test_no_suitable_box_raises	A giant item that fits nothing raises NoSuitableBoxError instead of silently picking something too small.
+test_inactive_box_excluded	Setting is_active=False on the cheapest box removes it from consideration — confirms retired/out-of-stock boxes are respected.
+test_ranked_candidates_sorted_by_cost_then_size	The full candidate list (get_ranked_candidate_boxes) comes back sorted cheapest-first.
+test_recommendation_persists_on_order_by_default	Calling recommend_box() with default args actually saves the result onto order.recommended_box.
+test_empty_order_raises	An order with zero line items raises an error rather than crashing or recommending nothing meaningfully.
+test_utilization_percentages_are_reasonable	The weight/volume utilization percentages returned are sane (>0%, ≤100% for weight).
+
+Together they cover the three checks the algorithm makes (weight, per-item fit, total volume), the two failure modes (no box fits, empty order), and the two supporting behaviors (ranking/alternatives, persistence).
